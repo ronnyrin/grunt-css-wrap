@@ -14,22 +14,63 @@
 
 'use strict';
 
-var
-  css_wrap = require( 'css-wrap' ),
-  chalk = require( 'chalk' );
+var css_wrap = require( 'css-wrap' );
+var path = require('path');
+var util = require('util');
+var chalk = require('chalk');
 
-module.exports = function( grunt ) {
-	grunt.registerMultiTask( 'css_wrap', 'Wrap CSS rules in a namespace', function() {
+module.exports = function (grunt) {
+  var getAvailableFiles = function (filesArray) {
+    return filesArray.filter(function (filepath) {
+      if (!grunt.file.exists(filepath)) {
+        grunt.log.warn('Source file ' + chalk.cyan(filepath) + ' not found');
+        return false;
+      }
+      return true;
+    });
+  };
 
-		var options = this.options({
-			// defaults
-			selector: ".css-wrap"
-		});
+  grunt.registerMultiTask('css_wrap', 'Wrap CSS rules in a namespace', function () {
+    var created = {
+      files: 0
+    };
 
-		this.files.forEach( function( f ) {
-			f.src.forEach( function( src ) {
-				grunt.file.write( f.dest, css_wrap( src, options ) );
-			});
-		});
-	});
+    this.files.forEach(function (file) {
+      var options = this.options({
+        // defaults
+        selector: ".css-wrap"
+      });
+
+      var availableFiles = getAvailableFiles(file.src);
+      var wrappedCssString = '';
+
+      var localoptions = options;
+
+      if( typeof(options.selector) == 'function'){
+          localoptions.selector = options.selector(file.src.toString());
+      }
+
+      try {
+        wrappedCssString = css_wrap( availableFiles.toString(), localoptions  );
+
+      } catch (err) {
+        grunt.log.error(err);
+        grunt.warn('CSS Wrap failed at ' + availableFiles + '.');
+      }
+
+
+
+      grunt.file.write(file.dest, wrappedCssString);
+      created.files++;
+      grunt.verbose.writeln('File ' + chalk.cyan(file.dest) + ' created ' );
+
+    }, this);
+
+
+    if (created.files > 0) {
+      grunt.log.ok(created.files + ' ' + grunt.util.pluralize(this.files.length, 'file/files') + ' created.');
+    } else {
+      grunt.log.warn('No files created.');
+    }
+  });
 };
