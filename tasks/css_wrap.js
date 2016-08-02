@@ -46,7 +46,7 @@ module.exports = function (grunt) {
 
       var localoptions = options;
 
-      if( typeof(options.selector) == 'function'){
+      if( typeof(options.selector) === 'function'){
           localoptions.selector = options.selector(file.src.toString());
       }
 
