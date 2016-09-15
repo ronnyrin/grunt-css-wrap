@@ -1,7 +1,7 @@
 {
   "name": "grunt-css-wrap-2",
   "description": "Wrap CSS rules in a namespace",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "homepage": "https://github.com/dissolve/grunt-css-wrap",
   "author": "Ben Roberts <ben@thatmustbe.me> (https://ben.thatmustbe.me)",
   "repository": {
