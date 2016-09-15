@@ -3,14 +3,10 @@
   "description": "Wrap CSS rules in a namespace",
   "version": "0.2.0",
   "homepage": "https://github.com/dissolve/grunt-css-wrap",
-  "author": {
-    "name": "Ben Roberts",
-    "email": "ben@thatmustbe.me",
-    "url": "https://ben.thatmustbe.me"
-  },
+  "author": "Ben Roberts <ben@thatmustbe.me> (https://ben.thatmustbe.me)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/dissolve/grunt-css-wrap.git"
+    "url": "git+https://github.com/dissolve/grunt-css-wrap.git"
   },
   "bugs": {
     "url": "https://github.com/dissolve/grunt-css-wrap/issues"
@@ -42,5 +38,10 @@
   "dependencies": {
     "chalk": "~0.4.0",
     "css-wrap": "~0.1.0"
-  }
+  },
+  "main": "Gruntfile.js",
+  "directories": {
+    "test": "test"
+  },
+  "license": "MIT"
 }
