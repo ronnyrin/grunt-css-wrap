@@ -1,20 +1,20 @@
 {
   "name": "grunt-css-wrap-3",
   "description": "Wrap CSS rules in a namespace",
-  "version": "0.2.1",
-  "homepage": "https://github.com/dissolve/grunt-css-wrap",
-  "author": "Ben Roberts <ben@thatmustbe.me> (https://ben.thatmustbe.me)",
+  "version": "0.1.0",
+  "homepage": "https://github.com/ronnyrin/grunt-css-wrap",
+  "author": "ronnyrin",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dissolve/grunt-css-wrap.git"
+    "url": "git+https://github.com/ronnyrin/grunt-css-wrap.git"
   },
   "bugs": {
-    "url": "https://github.com/dissolve/grunt-css-wrap/issues"
+    "url": "https://github.com/ronnyrin/grunt-css-wrap/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/dissolve/grunt-css-wrap/blob/master/LICENSE-MIT"
+      "url": "https://github.com/ronnyrin/grunt-css-wrap/blob/master/LICENSE-MIT"
     }
   ],
   "engines": {
